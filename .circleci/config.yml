@@ -13,13 +13,13 @@ jobs:
       - run:
           name: Build docker container for each microservices
           command: |
-            echo "========>>>>>>> Installing dependencies <<<<<<<========"
+            echo "========>>>>>>> Installing dependencies ---------"
             curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
             sudo apt-get install -y nodejs
             node -v
             npm -v
 
-            echo "========>>>>>>> The Images Is Building <<<<<<<========"
+            echo "--------- The Images Is Building ---------"
 
             docker build -t udagram-api-feed ./udagram-api-feed
             docker tag udagram-api-feed dayhp/udagram-api-feed:v3
@@ -33,13 +33,13 @@ jobs:
             docker build -t udagram-reverseproxy ./udagram-reverseproxy
             docker tag udagram-reverseproxy dayhp/udagram-reverseproxy:v3
 
-            echo "========>>>>>>> All Images Succesfully Build <<<<<<<========"
+            echo "--------- All Images Succesfully Build ---------"
 
-            echo " ========>>>>>>> Login To Hub <<<<<<<========"
+            echo " --------- Login To Hub ---------"
 
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-            echo "========>>>>>>> Pushing images to dockerhub <<<<<<<========"
+            echo "--------- Pushing images to dockerhub ---------"
 
             docker push dayhp/udagram-api-feed:v3
             docker push dayhp/udagram-api-user:v3
