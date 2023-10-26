@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: api-feed
-          image: dayhp/udagram-api-feed:v3
+          image: dayhp/udagram-api-feed:v4
           env:
             - name: POSTGRES_USERNAME
               valueFrom:

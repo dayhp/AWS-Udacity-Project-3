@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: reverseproxy
-        image: dayhp/udagram-reverseproxy:v3
+        image: dayhp/udagram-reverseproxy:v4
         ports:
         - containerPort: 80
         resources:
